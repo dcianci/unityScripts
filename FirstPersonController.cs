@@ -62,8 +62,11 @@ public class FirstPersonController : MonoBehaviour {
 		// Movement
 		float forwardSpeed = Input.GetAxis ("Vertical") * movementSpeed;
 		float sideSpeed = Input.GetAxis ("Horizontal") * movementSpeed;
-
-		verticalVelocity += Physics.gravity.y * Time.deltaTime;	
+		
+		if (cc.isGrounded)
+		    verticalVelocity = 0;
+		else
+		    verticalVelocity += Physics.gravity.y * Time.deltaTime;	
 
 		Vector3 speed = new Vector3 (sideSpeed, verticalVelocity, forwardSpeed);
 		speed = transform.rotation * speed;

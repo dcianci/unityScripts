@@ -35,7 +35,7 @@ public class FirstPersonController : MonoBehaviour {
     void Awake ()
     {
         camPos = Camera.main.transform.localPosition;
-        
+        restPosition = camPos;
     }
 	
 	// Update is called once per frame
